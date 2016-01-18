@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502160848) do
+ActiveRecord::Schema.define(version: 20160118142931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "deployers", force: :cascade do |t|
+    t.string   "deployer_name"
+    t.string   "real_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "deploys", force: :cascade do |t|
     t.string   "uid"
@@ -26,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150502160848) do
     t.datetime "time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "deployer_id"
   end
 
   create_table "stories", force: :cascade do |t|
