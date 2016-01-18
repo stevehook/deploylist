@@ -1,7 +1,7 @@
 module Admin
   class DeployerDirectoryController < ApplicationController
     def index
-      @users = Deployer.all
+      @deployers = Deployer.all
     end
   end
 end

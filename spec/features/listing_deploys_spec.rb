@@ -17,4 +17,12 @@ RSpec.feature "Listing deploys" do
 
     expect(page).to have_text("Showing 50 deploys")
   end
+
+  scenario "user only sees the most recent deploys" do
+    create(:deploy_with_deployer)
+
+    visit "/"
+
+    expect(page).to have_text("Showing 50 deploys")
+  end
 end
