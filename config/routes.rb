@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   authenticate do
     get '/all'     => 'deploys#all', as: :all_deploys
     root to: 'deploys#index'
+    get '/admin/deployer_directory' => 'admin/deployer_directory#index'
   end
 
   get '/deploy' => 'deploys#deploy'
